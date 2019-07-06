@@ -6,7 +6,8 @@
   "scripts": {
     "server": "node-env-run server.js --exec nodemon",
     "react": "cd  client && npm start",
-    "dev": "run-p server react"
+    "dev": "run-p server react",
+    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "repository": {
     "type": "git",

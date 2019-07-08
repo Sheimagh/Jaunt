@@ -2,11 +2,16 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const pino = require('express-pino-logger')();
 const path = require('path');
+const routes = require('./routes');
+
+require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 app.use(pino);
 
 app.get('/api/greeting', (req, res) => {
@@ -15,6 +20,8 @@ app.get('/api/greeting', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   res.send(JSON.stringify({ greeting: `Hello ${name}!` }));
 });
+
+app.use(routes);
 
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files

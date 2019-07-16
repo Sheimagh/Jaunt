@@ -2,6 +2,19 @@ import React, { Component } from 'react';
 import API from './utils/API';
 import logo from './logo.svg';
 import './App.css';
+import {
+  MDBNavbar,
+  MDBNavbarBrand,
+  MDBNavbarNav,
+  MDBNavbarToggler,
+  MDBCollapse,
+  MDBNavItem,
+  MDBFooter,
+  MDBNavLink
+} from "mdbreact";
+
+import { BrowserRouter as Router } from "react-router-dom";
+import Routes from "./Routes";
 
 class App extends Component {
 
@@ -82,6 +95,7 @@ class App extends Component {
             {this.state.results ?
               this.state.results.map(city => {
                 return <li><button onClick={() => this.handleCity(city.geonameid)}>{city.asciiname}</button></li>
+
               })
               :
               null}

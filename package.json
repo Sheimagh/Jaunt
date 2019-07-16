@@ -25,6 +25,7 @@
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "express-pino-logger": "^4.0.0",
+    "mdbreact": "^4.18.0",
     "node-env-run": "^3.0.2",
     "nodemon": "^1.19.1",
     "npm-run-all": "^4.1.5",
